@@ -1,0 +1,496 @@
+:root {
+  --black-color: #000;
+  --white-color: #fff;
+  --red-color: rgb(237, 40, 85, 1);
+  --gray-color: #eee;
+  --dark-gray-color: #444;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  background-color: var(--black-color);
+  font-family: "Noto Sans JP";
+  font-size:1.6rem;/* 16px*/
+  line-height: 1.5;
+  filter: drop-shadow(0px 0px #888);
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  outline: 0;
+}
+
+p {
+  color: #fff;
+  color: var(--white-color);
+  margin: 0;
+  font-family: "Noto Sans JP";
+}
+
+p.left {
+  text-align: left;
+}
+
+p.right {
+  text-align: right;
+}
+
+a {
+  display: block;
+  cursor: pointer;
+  outline: 0;
+  text-decoration: none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  min-height: 88vh;
+  margin: 0 auto;
+}
+
+.error-message {
+  text-align: center;
+}
+
+.print-area {
+  display: none;
+}
+
+/* video start */
+.video-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.video-wrapper > video {
+  width: 100%;
+  height: 40vh;
+  max-height: 700px;
+  margin: 0 auto;
+}
+/* video end */
+
+/* tab start */
+
+.tab-list {
+  margin: 5vmin auto 0;
+  display: none;
+}
+
+.tab-list.slick-initialized {
+  display: block;
+}
+
+.tab {
+  transition: color .2s ease-in;
+  -o-transition: color .2s ease-in;
+  -webkit-transition: color .2s ease-in;
+  cursor: pointer;
+  text-align:center;
+  color: #fff;
+  color: var(--white-color);
+  font-size: 1.8rem;
+  outline: 0;
+}
+
+.tab:hover {
+  opacity: 0.8;
+}
+
+.tab.active {
+  color: rgb(237, 40, 85, 1);
+  color: var(--red-color);
+}
+
+/* tab end */
+
+/* tab下線遷移用 start */
+#bottom_line {
+  width:50%;
+  height:2px;
+  color: rgb(237, 40, 85, 1);
+  background-color: var(--red-color);
+  margin-left:0;
+}
+
+#bottom_line.transition {
+  transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+}
+
+#bottom_line.position-1 {
+  margin-left: 0;
+}
+
+#bottom_line.position-2 {
+  margin-left: 50%;
+}
+/* tab下線遷移用 end */
+
+/* content start */
+.tab-contents {
+  display: none;
+}
+
+.tab-contents.slick-initialized {
+  display: block;
+}
+
+.content {
+  width: 100%;
+  margin: 1% auto;
+  outline: 0;
+}
+
+.loading-content {
+  display: none;
+}
+
+/* content end */
+
+/*** content_1 start ***/
+.animal-area {
+  width: 88%;
+  margin: 20px auto;
+}
+
+.animal-area img {
+  width: 100%;
+}
+
+.child-message-area {
+  background-color: #eee;
+  background-color:var(--gray-color);
+  border-radius: 5px;
+  width: 90%;
+  margin: 20px auto;
+  font-size: 1.4rem;
+}
+
+.background-wrapper {
+  background: url(../img/flower_icon.png) center no-repeat;
+  background-size: contain;
+  background-origin: content-box;
+}
+
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.animal-text {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+  align-items: center; /* 縦方向中央揃え */
+  -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+  justify-content: center; /* 横方向中央揃え */
+}
+
+/* bar area start */
+.bars-area {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.bar-container {
+  width: 100%;
+  margin: 3vmin auto;
+}
+
+.bar-labels {
+  font-size: 1.7rem;
+}
+
+.bar-wrapper {
+  width: 100%;
+  height: 5px;
+  background-color: #eee;
+  background-color: var(--gray-color);
+  margin: 0.5rem 0;
+  border-radius: 3px;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  background-color: #eee;
+  background-color: var(--gray-color);
+}
+
+p.bar-value-text {
+  margin-right: 5vw;
+  color: rgb(237, 40, 85, 1);
+  color: var(--red-color);
+}
+
+p.bar-summary {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  margin: .5em 0 2em 0;
+}
+/* bar area end */
+
+/*** content_1 end ***/
+
+
+/*** content_2 start ***/
+/* check point start */
+.message-area p.title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.message-area p {
+  margin: 20px;
+}
+
+.summary-title {
+  background-color: #eee;
+  background-color: var(--gray-color);
+  text-align: center;
+  margin: 40px 10vw 20px;
+  padding: 5px;
+  font-size: 1.8rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.check-point-area {
+  width: 98%;
+  margin: 1.5vmin auto;
+}
+
+.check-point-container {
+  width: 100%;
+}
+
+.check-point {
+  cursor: pointer;
+  margin: 1.5vmin 1vmin;
+}
+
+.check-point:hover {
+  opacity: 0.8;
+}
+
+.check-point-text {
+  font-size: 1.7rem;
+  padding: .3vmin 0;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #eee;
+  background-color: var(--gray-color);
+  color: #444;
+  color: var(--dark-gray-color);
+  border-radius: 5px;
+  transition: background-color .2s ease-in;
+  -o-transition: background-color .2s ease-in;
+  -webkit-transition: background-color .2s ease-in;
+}
+
+.check-point.active .check-point-text {
+  background-color: rgb(237, 40, 85, 1);
+  background-color: var(--red-color);
+  color: #fff;
+  color: var(--white-color);
+}
+
+.check-point-icon {
+  width: 100%;
+  margin: 2vh auto;
+}
+
+.check-point-icon>img {
+  width: 100%;
+}
+
+.check-point-icon>img.on {
+  display: none;
+}
+
+/* check point end */
+/*** content_2 end ***/
+
+/*flex*/
+.row{
+    display: flex;
+}
+.col-1{
+    width: 8.33%;
+}
+.col-2{
+    width: 16.66%;
+}
+.col-3{
+    width: 25%;
+}
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
+}
+
+footer {
+  margin: 10% auto 3%;
+  text-align: center;
+  color: #fff;
+  color: var(--white-color);
+  font-size: 1.2rem;
+}
+
+/* スマホ横・タブレット縦 */
+@media screen and (min-width: 481px) {
+  .tab {
+    font-size: 2.4rem;
+  }
+
+  .bar-labels {
+    font-size: 2.0rem;
+  }
+
+  p.bar-summary {
+    font-size: 1.7rem;
+  }
+
+  .check-point-text {
+    padding:3%;
+    font-size: 2.2rem;
+  }
+
+  .check-point-icon-on {
+    height: 30vw;
+  }
+
+  .check-point-icon-on>img {
+    width: auto;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  p.angle-text {
+    font-size: 1.3rem;
+  }
+
+  .check-point-comment-wrapper {
+    height: 30vw;
+  }
+
+  .check-point-comment {
+    font-size: 1.9rem;
+  }
+
+  .plot-title {
+    font-size: 2.2rem;
+  }
+
+  .recommend-text {
+    margin: 1% 8%;
+  }
+
+  .recommend-training-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  p.recommend-text {
+    font-size: 2.2rem;
+  }
+
+  p.training-title {
+    font-size: 2.2rem;
+    margin-top: 2%;
+  }
+
+  p.training-num {
+    font-size: 1.9rem;
+    margin-top: 2%;
+  }
+
+  p.training-tag {
+    font-size: 1.7rem;
+    margin: 2% 2% 0 0 ;
+  }
+
+  p.recommend-shoes {
+    width: 85%;
+    font-size: 1.8rem;
+  }
+}
+
+/* タブレット横以上 */
+@media screen and (min-width: 769px) {
+  .content {
+    margin: 2% auto;
+  }
+
+  .check-point-icon-on {
+    height: 20vw;
+  }
+
+  p.angle-text {
+    font-size: 1.5rem;
+  }
+
+  .check-point-comment-wrapper {
+    height: 20vw;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .video-wrapper > video {
+    height: 70vh;
+  }
+
+  .chart-wrapper {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .check-point-icon-on {
+    height: 250px;
+  }
+
+  p.angle-text {
+    font-size: 1.6rem;
+  }
+
+  .check-point-comment-wrapper {
+    height: 250px;
+  }
+}

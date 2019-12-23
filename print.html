@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Running Form Analyzer | Sportip, Inc.</title>
+    <link rel="shortcut icon" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+
+    <link type="text/css" rel='stylesheet' href="css/print.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- ランニング動画 -->
+      <div class="video-wrapper">
+        <video id="video" controls playsinline muted></video>
+      </div>
+
+      <!-- タブ -->
+      <div class="tab-list row">
+        <div class="tab active col-6" id="tab_1" data-content="1">きろく</div>
+        <div class="tab col-6" id="tab_2" data-content="2">保護者の方へ</div>
+      </div>
+      <!-- タブ下線 -->
+      <div id="bottom_line"></div>
+
+      <!-- データ読み込み時のローディングマーク -->
+      <div class="loader">Loading...</div>
+
+      <div class="tab-contents">
+        <!-- きろく選択時のコンテンツ -->
+        <div class="content active" id="content_1">
+          <div class="loading-content">
+            <div class="print-area">
+              <div class="check-point-image-container">
+                <div id="c_1">
+                  着地
+                  <canvas id="canvas_1"></canvas>
+                </div>
+                <div id="c_2">
+                  荷重
+                  <canvas id="canvas_2"></canvas>
+                </div>
+                <div id="c_3">
+                  離地
+                  <canvas id="canvas_3"></canvas>
+                </div>
+                <div id="c_4">
+                  跳躍
+                  <canvas id="canvas_4"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="child-contents">
+              <div class="child-message-area">
+                <div class="background-wrapper">
+                  <div class="bg-mask">
+                    さいごまであきらめないでよくはしれました。<br>
+                    これからもいっぱいあそんでからだをきたえてがんばってください。
+                  </div>
+                </div>              
+              </div>
+
+              <div class="animal-area row">
+                <div class="animal-text col-8">
+                  <p>あなたのスピードは<br>「うま」レベル！</p>
+                </div>
+                <div class="animal-img">
+                    <img id="animal_img" src="">
+                </div>
+              </div>
+            </div>
+            <!-- チェック項目 -->
+            <div class="check-point-area">
+              <div class="check-point-container row" id="check_point_container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 保護者の方へ選択時のコンテンツ -->
+        <div class="content" id="content_2">
+          <div class="loading-content">
+            <!-- 棒グラフ -->
+            <div class="bars-area" id="bars_area"></div>
+
+            <!-- メッセージエリア -->
+            <div class="message-area">
+              <p class="title">もっと早く走るには</p>
+              <p>幼少期には、とにかく遊んで体を動かす事が大切です。元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>Copyright©︎ 2019 Sportip, Inc. All rights reserved.</footer>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script src="js/print.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
+  </body>
+</html>

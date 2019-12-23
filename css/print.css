@@ -1,0 +1,179 @@
+:root {
+  --black-color: #000;
+  --white-color: #fff;
+  --red-color: rgb(237, 40, 85, 1);
+  --gray-color: #eee;
+  --dark-gray-color: #444;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+@page { 
+  size: A4 landscape /* A4横 */
+}
+
+html {
+  font-size: 50%;
+  transform: rotate( 90deg );
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  size: A4 landscape;
+  page-break-before: always;
+  background-color: #fff;
+  font-family: "Noto Sans JP";
+  font-size:1.6rem;/* 16px*/
+  line-height: 1.5;
+  outline: 0;
+}
+
+.loader {
+  display: none;
+}
+
+#bottom_line {
+  display: none;
+}
+
+video {
+  display: none;
+}
+
+.tab-list {
+  display: flex;
+}
+
+.tab {
+  background-color: rgb(237, 40, 85, 1);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#tab_1 {
+  width: 66.6%;
+}
+
+#tab_2 {
+  width: 33.3%;
+}
+
+.tab-contents {
+  display: flex;
+}
+
+.content {
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+#content_1 {
+  width: 66.6%;
+}
+
+#content_2 {
+  width: 33.3%;
+}
+
+.check-point-area {
+  display: none;
+}
+
+.check-point-image-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.check-point-image-container > div {
+  width: 46%;
+  margin: 0 2%;
+}
+
+canvas {
+  width: 100%;
+}
+
+.child-contents {
+  display: flex;
+}
+
+.child-message-area {
+  width: 50%;
+  margin: 2%;
+}
+
+.animal-area {
+  width: 50%;
+  display: flex;
+}
+
+.animal-text {
+  width: 40%
+}
+
+.animal-img {
+  width: 60%;
+}
+
+.animal-img img {
+  width: 100%;
+}
+
+/* bar area start */
+.bars-area {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.bar-container {
+  width: 100%;
+}
+
+.bar-labels {
+  font-size: 1.7rem;
+  display: flex;
+}
+
+.bar-wrapper {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(237, 40, 85, 1);
+  background-color: var(--red-color);
+  margin: 0.5rem 0;
+  border-radius: 3px;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  background-color: rgb(237, 40, 85, 1);
+  background-color: var(--red-color);
+}
+
+p.bar-value-text {
+  color: rgb(237, 40, 85, 1);
+  color: var(--red-color);
+}
+
+p.bar-summary {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  margin: .5rem 0 .5rem 0;
+}
+/* bar area end */
+
+footer {
+  display: none;
+}
+
+.col-6 {
+  width: 50%;
+}

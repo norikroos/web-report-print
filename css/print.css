@@ -14,7 +14,7 @@ p {
 }
 
 @page { 
-  size: A4 landscape /* A4横 */
+  size: A4;
 }
 
 html {
@@ -23,9 +23,10 @@ html {
 }
 
 body {
+  height: 100%;
   width: 100%;
   margin: 0 auto;
-  size: A4 landscape;
+  size: A4;
   page-break-before: always;
   background-color: #fff;
   font-family: "Noto Sans JP";

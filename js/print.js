@@ -11,11 +11,11 @@ let jsonData = {};
 const mediafile_id = arg.mediafile_id;
 
 // API URL
-// const URL =
+const URL =
   "https://kffjc39iea.execute-api.us-east-1.amazonaws.com/test/media/" +
   mediafile_id +
   "/evaluate";
-const URL = "resource/runpit.json"; // TEST用
+// const URL = "resource/runpit.json"; // TEST用
 
 const bar_messages = {
   pitch:
@@ -58,42 +58,33 @@ const Bar = function(props) {
 
 var video = document.getElementById("video");
 video.src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-
-video.addEventListener("loadeddata", function() {
-  if (Object.keys(jsonData).length) {
-    console.log('state');
-    console.log(video.readyState);
-    const checkPointData = jsonData.check_point_icon_data;
-    checkPointData.forEach(function(value, index) {
-      drawVideoFrameImage(index + 1, value.frame);
-    });
-  }
-});
+video.play();
 
 const drawVideoFrameImage = function(id, frame) {
-  var image = document.getElementById("canvas_" + id);
-  var canvas = document.createElement("canvas");
-  console.log(frame);
-  video.currentTime = frame / 29.97;
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  console.log(video.currentTime);
-  canvas
-    .getContext("2d")
-    .drawImage(
-      video,
-      0,
-      0
-    );
-  image.src = canvas.toDataURL();
+  return new Promise(function(resolve) {
+    console.log('call draw');
+    video.currentTime = frame / 29.97;
+    video.addEventListener('timeupdate', function() {
+      console.log('state:', video.readyState, ', currentTime: ', video.currentTime);
+      const image = document.getElementById("canvas_" + id);
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas
+        .getContext("2d")
+        .drawImage(
+          video,
+          0,
+          0
+        );
+      image.src = canvas.toDataURL();
+      return resolve();
+    }, {once: true});
+  });
 };
 
 // 評価項目
 const CheckPoint = function(props) {
-  console.log("checkpoint");
-  video.currentTime = props.frame / 29.97;
-  console.log(video.currentTime);
-
   return (
     '\
     <div class="check-point col-' +
@@ -117,6 +108,24 @@ const CheckPoint = function(props) {
     </div>\
   '
   );
+};
+
+const showCheckPointData = function(checkPointData) {
+  video.addEventListener('loadeddata', async function() {
+    const checkPointCol = parseInt(12 / checkPointData.length);
+    for (let index = 0; index < checkPointData.length; index++) {
+      const value = checkPointData[index];
+      console.log(value.frame);
+      await drawVideoFrameImage(index + 1, value.frame);
+      const values = Object.assign(value, {
+        id: String(index + 1),
+        col: String(checkPointCol)
+      });
+      $("#check_point_container").append(CheckPoint(values));
+    }
+    $(".loader").hide();
+    $(".print-form").show();
+  });
 };
 
 // QRコード生成
@@ -166,10 +175,9 @@ $.ajax({
     console.error("failed to load data");
   },
   success: function(res) {
-    $(".loader").hide();
     jsonData = res;
 
-    console.log(JSON.stringify(jsonData));
+    console.log(jsonData);
 
     $("#animal_img").attr({ src: "img/animal.png" });
     $(".loading-content").show();
@@ -185,22 +193,6 @@ $.ajax({
     });
 
     // check point描画
-    const checkPointData = jsonData.check_point_icon_data;
-    const checkPointCol = parseInt(12 / checkPointData.length);
-    checkPointData.forEach(function(value, index) {
-      drawVideoFrameImage(index + 1, value.frame);
-      const values = Object.assign(value, {
-        id: String(index + 1),
-        col: String(checkPointCol)
-      });
-      $("#check_point_container").append(CheckPoint(values));
-    });
-
-    var b = document.body;
-    sh = b.offsetHeight;
-    sw = b.offsetWidth;
-    b.style.MozTransformOrigin = "100% 100%";
-    b.style.MozTransform = "rotate(90deg) translateX(" + (sw - sh) + "px)";
-    scroll(sh, 0);
+    showCheckPointData(jsonData.check_point_icon_data);
   }
 });

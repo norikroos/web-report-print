@@ -494,3 +494,41 @@ footer {
     height: 250px;
   }
 }
+
+form.print-form {
+  display: none;
+  text-align: center;
+  margin: 40vh auto;
+}
+
+video.print-video {
+  display: none;
+}
+
+.print-area {
+  display: none;
+}
+
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+form.print-form input {
+  background-color: var(--red-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  width: 70vw;
+  height: 50px;
+  font-size: 2rem;
+  border: none;
+}
+
+.print-page .loader {
+  margin: 40vh auto;
+}

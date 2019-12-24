@@ -6,23 +6,28 @@
     <title>Running Form Analyzer | Sportip, Inc.</title>
     <link rel="shortcut icon" href="img/icon.png">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
-
-    <link type="text/css" rel='stylesheet' href="css/print.css">
+    <link type="text/css" rel='stylesheet' href='css/style.css' media="screen"/>
+    <link type="text/css" rel='stylesheet' href="css/print.css" media="print"/>
+    <link type="text/css" rel='stylesheet' href='css/loader.css'/>
   </head>
   <body>
-    <div class="container">
+    <div class="container print-page">
       <!-- ランニング動画 -->
       <div class="video-wrapper">
-        <video id="video" controls crossorigin="anonymous" playsinline autoplay muted></video>
+        <video class="print-video" id="video" controls crossorigin="anonymous" playsinline autoplay muted></video>
       </div>
 
+      <form class="print-form">
+        <input type="button" value="印刷" onclick="window.print();" />
+      </form>
+
       <!-- タブ -->
-      <div class="tab-list row">
+      <div class="tab-list print-area row">
         <div class="tab active col-6" id="tab_1" data-content="1">きろく</div>
         <div class="tab col-6" id="tab_2" data-content="2">保護者の方へ</div>
       </div>
       <!-- タブ下線 -->
-      <div id="bottom_line"></div>
+      <div class="print-area" id="bottom_line"></div>
 
       <!-- データ読み込み時のローディングマーク -->
       <div class="loader">Loading...</div>

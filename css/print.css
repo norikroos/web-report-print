@@ -235,3 +235,7 @@ footer {
 .col-6 {
   width: 50%;
 }
+
+form.print-form {
+  display: none;
+}

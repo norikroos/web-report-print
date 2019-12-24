@@ -15,17 +15,20 @@ p {
 
 @page { 
   size: A4;
+
 }
 
 html {
   font-size: 50%;
-  transform: rotate( 90deg );
+  transform: rotate( 90deg ); /* iphoneクソだから強引に横にする */
 }
 
 body {
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
+  /* このサイズは仮 */
+  width: 245mm;
+  height: 162mm;
+  /* width: 100%; */
+  margin: auto;
   size: A4;
   page-break-before: always;
   background-color: #fff;
@@ -98,7 +101,7 @@ video {
   margin: 0 2%;
 }
 
-canvas {
+.check-point-image-container img {
   width: 100%;
 }
 
@@ -109,6 +112,22 @@ canvas {
 .child-message-area {
   width: 50%;
   margin: 2%;
+  font-size: 2rem;
+  position: relative;
+}
+
+.flower-icon {
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bg-mask {
+  position: absolute;
+  width: 91%;
+  bottom: 0;
+  right: 0;
 }
 
 .animal-area {
@@ -117,11 +136,18 @@ canvas {
 }
 
 .animal-text {
-  width: 40%
+  width: 40%;
+  position: relative;
+}
+
+.animal-text p {
+  position: absolute;
+  bottom: 20px;
+  right: -12px;
 }
 
 .animal-img {
-  width: 60%;
+  width: 45%;
 }
 
 .animal-img img {
@@ -162,6 +188,7 @@ canvas {
 p.bar-value-text {
   color: rgb(237, 40, 85, 1);
   color: var(--red-color);
+  text-align: right;
 }
 
 p.bar-summary {
@@ -171,8 +198,38 @@ p.bar-summary {
 }
 /* bar area end */
 
+.message-area {
+  width: 65%;
+}
+
+.message-area .title {
+  font-size: 1.8rem;
+  line-height: 2;
+}
+
+.qr-wrapper {
+  width: 35%;
+}
+
+.qr-wrapper p {
+  color: rgb(237, 40, 85, 1);
+  color: var(--red-color);
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+canvas {
+  width: 80%;
+  margin: 5px auto 0;
+  display: block;
+}
+
 footer {
   display: none;
+}
+
+.row {
+  display: flex;
 }
 
 .col-6 {

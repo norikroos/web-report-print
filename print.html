@@ -59,6 +59,7 @@
                     さいごまであきらめないでよくはしれました。<br>
                     これからもいっぱいあそんでからだをきたえてがんばってください。
                   </div>
+                  <img class="flower-icon" src="img/flower_icon.png">
                 </div>              
               </div>
 
@@ -84,10 +85,16 @@
             <!-- 棒グラフ -->
             <div class="bars-area" id="bars_area"></div>
 
-            <!-- メッセージエリア -->
-            <div class="message-area">
-              <p class="title">もっと早く走るには</p>
-              <p>幼少期には、とにかく遊んで体を動かす事が大切です。元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
+            <div class="row">
+              <!-- メッセージエリア -->
+              <div class="message-area">
+                <p class="title">もっと早く走るには</p>
+                <p>幼少期には、とにかく遊んで体を動かす事が大切です。元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
+              </div>
+              <div class="qr-wrapper">
+                <p>結果をスマホでみる<br>有効期限 1/31</p>
+                <div class="qr" id="qr"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,6 +105,7 @@
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
     <script src="js/print.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015"></script>
   </body>

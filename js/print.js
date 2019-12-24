@@ -6,24 +6,16 @@ url.forEach(function(param) {
   arg[k[0]] = k[1];
 });
 
+let jsonData = {};
+
 const mediafile_id = arg.mediafile_id;
 
-// 動画埋め込み
-const videos = [];
-for (i = 0; i < 4; i++) {
-  videos.push(document.createElement("video"));
-  videos[i].src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-  videos[i].crossOrigin = "anonymous";
-  videos[i].muted = true;
-  videos[i].play();
-}
-
 // API URL
-const URL =
+// const URL =
   "https://kffjc39iea.execute-api.us-east-1.amazonaws.com/test/media/" +
   mediafile_id +
   "/evaluate";
-// const URL = "resource/runpit.json"; // TEST用
+const URL = "resource/runpit.json"; // TEST用
 
 const bar_messages = {
   pitch:
@@ -66,9 +58,23 @@ const Bar = function(props) {
 
 var video = document.getElementById("video");
 video.src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-video.addEventListener("canplay", function() {
-  var image = document.getElementById("canvas_" + 1);
+
+video.addEventListener("loadeddata", function() {
+  if (Object.keys(jsonData).length) {
+    console.log('state');
+    console.log(video.readyState);
+    const checkPointData = jsonData.check_point_icon_data;
+    checkPointData.forEach(function(value, index) {
+      drawVideoFrameImage(index + 1, value.frame);
+    });
+  }
+});
+
+const drawVideoFrameImage = function(id, frame) {
+  var image = document.getElementById("canvas_" + id);
   var canvas = document.createElement("canvas");
+  console.log(frame);
+  video.currentTime = frame / 29.97;
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   console.log(video.currentTime);
@@ -77,23 +83,13 @@ video.addEventListener("canplay", function() {
     .drawImage(
       video,
       0,
-      0,
-      video.videoWidth,
-      video.videoHeight,
-      0,
-      0,
-      video.videoWidth / 3,
-      video.videoHeight / 3
+      0
     );
-  console.log("canvas");
-  console.log(canvas.toDataURL());
   image.src = canvas.toDataURL();
-  console.log(image.src);
-});
+};
 
 // 評価項目
 const CheckPoint = function(props) {
-  const video = videos[props.id - 1];
   console.log("checkpoint");
   video.currentTime = props.frame / 29.97;
   console.log(video.currentTime);
@@ -122,6 +118,9 @@ const CheckPoint = function(props) {
   '
   );
 };
+
+// QRコード生成
+$('#qr').qrcode(location.href.replace('print', 'index'));
 
 const switchActiveTab = function(content_id) {
   $("#bottom_line")
@@ -170,7 +169,7 @@ $.ajax({
     $(".loader").hide();
     jsonData = res;
 
-    console.log(jsonData);
+    console.log(JSON.stringify(jsonData));
 
     $("#animal_img").attr({ src: "img/animal.png" });
     $(".loading-content").show();
@@ -189,6 +188,7 @@ $.ajax({
     const checkPointData = jsonData.check_point_icon_data;
     const checkPointCol = parseInt(12 / checkPointData.length);
     checkPointData.forEach(function(value, index) {
+      drawVideoFrameImage(index + 1, value.frame);
       const values = Object.assign(value, {
         id: String(index + 1),
         col: String(checkPointCol)

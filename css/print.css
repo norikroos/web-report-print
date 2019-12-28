@@ -80,6 +80,9 @@ video {
 }
 
 .entry-field {
+  font-size: 2rem;
+  padding: 5px;
+  box-sizing: border-box;
   width: 50%;
   height: 40px;
   margin: 0 0 5px 5px;
@@ -88,12 +91,11 @@ video {
 }
 
 .child-physical-info p {
-  width: 60%;
+  width: 80%;
   margin: 0 0 5px auto;
 }
 
 .child-physical-info p:last-child {
-  width: 70%;
   margin-right: 5px;
 }
 

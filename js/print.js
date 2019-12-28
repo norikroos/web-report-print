@@ -27,11 +27,11 @@ const animal_info = {
 
 const bar_messages = {
   pitch:
-    "お子様の平均的なピッチは{value}です。スピードに乗った後はピッチが安定すると記録の向上が見込めます。一定の回転数を意識して走れるように指導してみてください。",
+    "お子様の平均的なピッチは<span class='red'>{value}</span>です。スピードに乗った後はピッチが安定すると記録の向上が見込めます。一定の回転数を意識して走れるように指導してみてください。",
   stride:
-    "お子様のストライドは{value}です。一般的に身長よりも大きなストライドだと記録が伸びると言われております。お子様の身長と比較していただき、大きな歩幅となるよう指導してみてください。身長に対して短い場合は、股関節のストレッチが効果的です。",
+    "お子様のストライドは<span class='red'>{value}</span>です。一般的に身長よりも大きなストライドだと記録が伸びると言われております。お子様の身長と比較していただき、大きな歩幅となるよう指導してみてください。身長に対して短い場合は、股関節のストレッチが効果的です。",
   arm_swing:
-    "お子様の腕のふり幅は平均よりも{value}です。もっと大きく腕を振ると、効率的に力を伝える事ができます。男の子は縦、女の子は横に腕を振ると良いと言われています。"
+    "お子様の腕のふり幅は平均よりも<span class='red'>{value}</span>です。もっと大きく腕を振ると、効率的に力を伝える事ができます。男の子は縦、女の子は横に腕を振ると良いと言われています。"
 };
 
 // 棒グラフ
@@ -90,33 +90,6 @@ const drawVideoFrameImage = function(id, frame) {
   });
 };
 
-// 評価項目
-const CheckPoint = function(props) {
-  return (
-    '\
-    <div class="check-point col-' +
-    props.col +
-    '" id="check_point_' +
-    props.id +
-    '" onclick="toggleActive(this, ' +
-    props.frame +
-    ');">\
-      <div class="check-point-text">' +
-    props.display_name +
-    '</div>\
-      <div class="check-point-icon">\
-        <img class="off" src="' +
-    props.icon_off_url +
-    '">\
-        <img class="on" src="' +
-    props.icon_on_url +
-    '">\
-      </div>\
-    </div>\
-  '
-  );
-};
-
 const showCheckPointData = function(checkPointData) {
   // console.log('showCheckpointData');
   video.addEventListener('canplay', async function() {
@@ -126,11 +99,6 @@ const showCheckPointData = function(checkPointData) {
       const value = checkPointData[index];
       // console.log(value.frame);
       await drawVideoFrameImage(index + 1, value.frame);
-      const values = Object.assign(value, {
-        id: String(index + 1),
-        col: String(checkPointCol)
-      });
-      $("#check_point_container").append(CheckPoint(values));
     }
     $(".loader").hide();
     $(".print-form").show();
@@ -154,28 +122,6 @@ $('#print_button').on('click', function() {
   // $('#weight').text($('#input_weight').val());
   window.print();
 });
-
-// check point 表示切り替え
-const toggleActive = function(e, frame) {
-
-  if ($(e).hasClass("active")) {
-    return null;
-  }
-
-  video.currentTime = frame / 29.97;
-
-  $(".check-point.active").removeClass("active");
-  $(".check-point img.on").hide();
-  $(".check-point img.off").show();
-  $(e).addClass("active");
-  $(e)
-    .find("img.off")
-    .hide();
-  $(e)
-    .find("img.on")
-    .fadeIn(200);
-  return null;
-};
 
 // APIリクエスト
 $.ajax({

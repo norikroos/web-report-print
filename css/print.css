@@ -51,6 +51,11 @@ body {
   outline: 0;
 }
 
+.red {
+  color: rgb(237, 40, 85, 1);
+  color: var(--red-color);
+}
+
 .loader {
   display: none;
 }

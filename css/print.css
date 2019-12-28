@@ -15,24 +15,37 @@ p {
 
 @page { 
   size: A4;
-
+  margin: 0mm;
+  padding: 0mm;
+  box-sizing: border-box;
 }
 
 html {
-  font-size: 50%;
+  position: relative;
+  font-size: 60%;
   transform: rotate( 90deg ); /* iphoneクソだから強引に横にする */
+  width: 100%;
+  height: 100%;
+  margin: 0mm;
+  padding: 0mm;
+  box-sizing: border-box;
 }
 
 body {
+  position: absolute;
+  top: 10mm;
+  left: -37mm;
+  right: 0;
+  bottom: 0;
   /* このサイズは仮 */
-  width: 245mm;
-  height: 162mm;
+  width: 283mm;
+  height: 210mm;
   /* width: 100%; */
   margin: auto;
-  size: A4;
   page-break-before: always;
   background-color: #fff;
-  font-family: "Noto Sans JP";
+  /* font-family: "Noto Sans JP"; */
+  font-family: Meirio;
   font-size:1.6rem;/* 16px*/
   line-height: 1.5;
   outline: 0;
@@ -50,6 +63,35 @@ video {
   display: none;
 }
 
+.child-info-area {
+  display: flex;
+}
+
+.child-info-area div {
+  margin: 0 10px;
+  color: #000;
+  color: var(--black-color);
+  font-size: 2rem;
+}
+
+.entry-field {
+  width: 50%;
+  height: 40px;
+  margin: 0 0 5px 5px;
+  border: thin solid #444;
+  border: thin solid var(--dark-gray-color);
+}
+
+.child-physical-info p {
+  width: 60%;
+  margin: 0 0 5px auto;
+}
+
+.child-physical-info p:last-child {
+  width: 70%;
+  margin-right: 5px;
+}
+
 .tab-list {
   display: flex;
 }
@@ -59,7 +101,10 @@ video {
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  margin: 10px;
+  margin: 0 10px;
+  font-size: 2rem;
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 #tab_1 {
@@ -96,9 +141,13 @@ video {
   flex-wrap: wrap;
 }
 
+.check-point-image-container {
+  font-size: 1.9rem;
+}
+
 .check-point-image-container > div {
-  width: 46%;
-  margin: 0 2%;
+  width: 48%;
+  margin: 2% 1%;
 }
 
 .check-point-image-container img {
@@ -111,7 +160,7 @@ video {
 
 .child-message-area {
   width: 50%;
-  margin: 2%;
+  margin: 3% 0 0;
   font-size: 2rem;
   position: relative;
 }
@@ -119,7 +168,7 @@ video {
 .flower-icon {
   width: 20%;
   position: absolute;
-  top: 0;
+  top: -20px;
   left: 0;
 }
 
@@ -128,6 +177,8 @@ video {
   width: 91%;
   bottom: 0;
   right: 0;
+  padding: 5% 0 0 5%;
+  box-sizing: border-box;
 }
 
 .animal-area {
@@ -141,13 +192,18 @@ video {
 }
 
 .animal-text p {
+  font-size: 1.8rem;
   position: absolute;
   bottom: 20px;
-  right: -12px;
+  right: 0px;
+}
+
+.animal-text .animal-name {
+  font-size: 2rem;
 }
 
 .animal-img {
-  width: 45%;
+  width: 60%;
 }
 
 .animal-img img {
@@ -156,16 +212,17 @@ video {
 
 /* bar area start */
 .bars-area {
-  width: 92%;
+  width: 98%;
   margin: 0 auto;
 }
 
 .bar-container {
   width: 100%;
+  margin: 2% 0 3%;
 }
 
 .bar-labels {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   display: flex;
 }
 
@@ -183,20 +240,27 @@ video {
   height: 100%;
   background-color: rgb(237, 40, 85, 1);
   background-color: var(--red-color);
+  font-size: 1.9rem;
 }
 
 p.bar-value-text {
   color: rgb(237, 40, 85, 1);
   color: var(--red-color);
   text-align: right;
+  font-size: 1.9rem;
 }
 
 p.bar-summary {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 1.7;
   margin: .5rem 0 .5rem 0;
 }
 /* bar area end */
+
+.message-container {
+  width: 98%;
+  margin: 1% auto;
+}
 
 .message-area {
   width: 65%;
@@ -204,7 +268,10 @@ p.bar-summary {
 
 .message-area .title {
   font-size: 1.8rem;
-  line-height: 2;
+}
+
+.message-area p {
+  margin-top: 10px;
 }
 
 .qr-wrapper {
@@ -214,7 +281,7 @@ p.bar-summary {
 .qr-wrapper p {
   color: rgb(237, 40, 85, 1);
   color: var(--red-color);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -232,8 +299,24 @@ footer {
   display: flex;
 }
 
+.col-2 {
+  width: 16.6%;
+}
+
+.col-4 {
+  width: 33.3%;
+}
+
+.col-8 {
+  width: 66.6%;
+}
+
 .col-6 {
   width: 50%;
+}
+
+.form {
+  display: none;
 }
 
 form.print-form {

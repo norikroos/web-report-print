@@ -17,9 +17,21 @@
         <video class="print-video" id="video" controls crossorigin="anonymous" playsinline autoplay muted></video>
       </div>
 
-      <form class="print-form">
-        <input type="button" value="印刷" onclick="window.print();" />
-      </form>
+      <div class="form">
+        <form class="print-form">
+          <!-- <p><input type="text" id="input_name" name="name" placeholder="名前" /> さん</p>
+          <p><input type="number" id="input_height" name="height" placeholder="身長(cm)" /> cm</p>
+          <p><input type="number" id="input_weight" name="weight" placeholder="体重(kg)" /> kg</p> -->
+          <input id="print_button" type="button" value="印刷" />
+        </form>
+      </div>
+
+      <!-- 氏名・身長・体重 -->
+      <div class="child-info-area print-area">
+        <div class="child-name col-8"><p class="entry-field" id="child_name"></p></div>
+        <div class="child-physical-info col-2"><p class="entry-field" id="height"></p></div>
+        <div class="child-physical-info col-2"><p class="entry-field" id="weight"></p></div>
+      </div>
 
       <!-- タブ -->
       <div class="tab-list print-area row">
@@ -39,19 +51,19 @@
             <div class="print-area">
               <div class="check-point-image-container">
                 <div id="c_1">
-                  着地
+                  <p>着地</p>
                   <img id="canvas_1">
                 </div>
                 <div id="c_2">
-                  荷重
+                  <p>荷重</p>
                   <img id="canvas_2">
                 </div>
                 <div id="c_3">
-                  離地
+                  <p>離地</p>
                   <img id="canvas_3">
                 </div>
                 <div id="c_4">
-                  跳躍
+                  <p>跳躍</p>
                   <img id="canvas_4">
                 </div>
               </div>
@@ -60,19 +72,18 @@
             <div class="child-contents">
               <div class="child-message-area">
                 <div class="background-wrapper">
-                  <div class="bg-mask">
-                    さいごまであきらめないでよくはしれました。<br>
-                    これからもいっぱいあそんでからだをきたえてがんばってください。
-                  </div>
                   <img class="flower-icon" src="img/flower_icon.png">
+                  <div class="bg-mask">
+                    さいごまであきらめないで<br>よくはしれました。<br>これからもいっぱいあそんで<br>からだをきたえて<br>がんばってください。
+                  </div>
                 </div>              
               </div>
 
               <div class="animal-area row">
-                <div class="animal-text col-8">
-                  <p>あなたのスピードは<br>「うま」レベル！</p>
+                <div class="animal-text col-6">
+                  <p>あなたのスピードは<br>「<span class="animal-name" id="animal_name"></span>」レベル！</p>
                 </div>
-                <div class="animal-img">
+                <div class="animal-img col-6">
                     <img id="animal_img" src="">
                 </div>
               </div>
@@ -90,14 +101,15 @@
             <!-- 棒グラフ -->
             <div class="bars-area" id="bars_area"></div>
 
-            <div class="row">
+            <div class="message-container row">
               <!-- メッセージエリア -->
               <div class="message-area">
                 <p class="title">もっと早く走るには</p>
-                <p>幼少期には、とにかく遊んで体を動かす事が大切です。元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
+                <div class="bar-wrapper"></div>
+                <p>幼少期には、とにかく遊んで体を動かす事が大切です。<br>元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
               </div>
               <div class="qr-wrapper">
-                <p>結果をスマホでみる<br>有効期限 1/31</p>
+                <p>結果をスマホでみる<br>有効期限 2020/1/31</p>
                 <div class="qr" id="qr"></div>
               </div>
             </div>
@@ -105,7 +117,7 @@
         </div>
       </div>
     </div>
-    <footer>Copyright©︎ 2019 Sportip, Inc. All rights reserved.</footer>
+    <footer class="print-footer">Copyright©︎ 2019 Sportip, Inc. All rights reserved.</footer>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

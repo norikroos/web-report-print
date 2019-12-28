@@ -164,8 +164,13 @@ a:hover {
   margin: 20px auto;
 }
 
+.animal-img-wrapper {
+  text-align: right;
+}
+
 .animal-area img {
-  width: 100%;
+  display: inline-block;
+  width: 90%;
 }
 
 .child-message-area {
@@ -365,6 +370,14 @@ p.bar-summary {
     width: 100%;
 }
 
+.deadline {
+  color: #fff;
+  color: var(--white-color);
+  text-align: right;
+  font-size: 1.4rem;
+  margin: 3%;
+}
+
 footer {
   margin: 10% auto 3%;
   text-align: center;
@@ -498,7 +511,7 @@ footer {
 form.print-form {
   display: none;
   text-align: center;
-  margin: 40vh auto;
+  margin: 0 auto;
 }
 
 video.print-video {
@@ -519,16 +532,50 @@ input[type="button"] {
   cursor: pointer;
 }
 
-form.print-form input {
-  background-color: var(--red-color);
-  color: var(--white-color);
-  border-radius: 5px;
+form.print-form {
   width: 70vw;
+}
+
+form.print-form input {
   height: 50px;
   font-size: 2rem;
   border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+input:focus {
+  outline: 0;
+}
+
+form.print-form input[type='button'] {
+  background-color: var(--red-color);
+  color: var(--white-color);
+  width: 100%;
+}
+
+form.print-form p {
+  width: 100%;
+  text-align: left;
+}
+
+form.print-form input[type='text'], form.print-form input[type='number'] {
+  background-color: var(--gray-color);
+  background-color: #eee;
+  color: var(--dark-gray-color);
+  color: #444;
+  width: 70%;
+}
+
+.container.print-page {
+  min-height: 0;
+  margin-top: 50%;
 }
 
 .print-page .loader {
   margin: 40vh auto;
+}
+
+footer.print-footer {
+  margin-top: 90%;
 }

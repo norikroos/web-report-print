@@ -12,10 +12,18 @@ const mediafile_id = arg.mediafile_id;
 
 // API URL
 const URL =
-  "https://kffjc39iea.execute-api.us-east-1.amazonaws.com/test/media/" +
+  "https://kffjc39iea.execute-api.us-east-1.amazonaws.com/wadws/media/" +
   mediafile_id +
   "/evaluate";
 // const URL = "resource/runpit.json"; // TEST用
+
+const animal_info = {
+  horse : { img_name : 'horse_3x.png', animal_jp : 'うま',},
+  dog : { img_name : 'dog_3x.png', animal_jp : 'いぬ',},
+  cat : { img_name : 'cat_3x.png', animal_jp : 'ねこ',},
+  rabbit : { img_name : 'rabbit_3x.png', animal_jp : 'うさぎ',},
+  squirrel : { img_name : 'squirrel_3x.png', animal_jp : 'りす',},
+};
 
 const bar_messages = {
   pitch:
@@ -58,14 +66,13 @@ const Bar = function(props) {
 
 var video = document.getElementById("video");
 video.src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-video.play();
 
 const drawVideoFrameImage = function(id, frame) {
   return new Promise(function(resolve) {
-    console.log('call draw');
+    // console.log('call draw');
     video.currentTime = frame / 29.97;
     video.addEventListener('timeupdate', function() {
-      console.log('state:', video.readyState, ', currentTime: ', video.currentTime);
+      // console.log('state:', video.readyState, ', currentTime: ', video.currentTime);
       const image = document.getElementById("canvas_" + id);
       const canvas = document.createElement("canvas");
       canvas.width = video.videoWidth;
@@ -111,11 +118,13 @@ const CheckPoint = function(props) {
 };
 
 const showCheckPointData = function(checkPointData) {
-  video.addEventListener('loadeddata', async function() {
+  // console.log('showCheckpointData');
+  video.addEventListener('canplay', async function() {
+    // console.log('canplay');
     const checkPointCol = parseInt(12 / checkPointData.length);
     for (let index = 0; index < checkPointData.length; index++) {
       const value = checkPointData[index];
-      console.log(value.frame);
+      // console.log(value.frame);
       await drawVideoFrameImage(index + 1, value.frame);
       const values = Object.assign(value, {
         id: String(index + 1),
@@ -125,7 +134,7 @@ const showCheckPointData = function(checkPointData) {
     }
     $(".loader").hide();
     $(".print-form").show();
-  });
+  }, {once: true});
 };
 
 // QRコード生成
@@ -139,9 +148,15 @@ const switchActiveTab = function(content_id) {
   $("#tab_" + content_id).addClass("active");
 };
 
+$('#print_button').on('click', function() {
+  // $('#child_name').text($('#input_name').val());
+  // $('#height').text($('#input_height').val());
+  // $('#weight').text($('#input_weight').val());
+  window.print();
+});
+
 // check point 表示切り替え
 const toggleActive = function(e, frame) {
-  const check_point_id = $(e).data("id");
 
   if ($(e).hasClass("active")) {
     return null;
@@ -177,10 +192,7 @@ $.ajax({
   success: function(res) {
     jsonData = res;
 
-    console.log(jsonData);
-
-    $("#animal_img").attr({ src: "img/animal.png" });
-    $(".loading-content").show();
+    // console.log(jsonData);
 
     // summary data描画
     const display_list = ["pitch", "stride", "arm_swing"];
@@ -192,7 +204,26 @@ $.ajax({
       }
     });
 
+    // const velocity = summaryData.find(e => e.title_en == 'pitch').value / 60 * summaryData.find(e => e.title_en == 'stride').value / 100;
+    const velocity = jsonData.velocity;
+    let animal_en = 'horse';
+
+      if (velocity <= 5.0) {
+        animal_en = 'squirrel';
+      } else if (velocity <= 5.8) {
+        animal_en = 'rabbit';
+      } else if (velocity <= 6.5) {
+        animal_en = 'cat';
+      } else if (velocity <= 7.3) {
+        animal_en = 'dog';
+      }
+
+      $('#animal_img').attr({'src': 'img/animals/' + animal_info[animal_en].img_name});
+      $('#animal_name').text(animal_info[animal_en].animal_jp);
+
     // check point描画
     showCheckPointData(jsonData.check_point_icon_data);
+
+    $('.loading-content').show();
   }
 });

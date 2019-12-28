@@ -15,7 +15,7 @@
     <div class="container">
       <!-- ランニング動画 -->
       <div class="video-wrapper">
-        <video id="video" controls playsinline muted></video>
+        <video id="video" controls playsinline autoplay muted></video>
       </div>
 
       <!-- タブ -->
@@ -34,19 +34,18 @@
         <div class="content active" id="content_1">
           <div class="loading-content">
             <div class="animal-area row">
-              <div class="col-4">
+              <div class="col-5 animal-img-wrapper">
                   <img id="animal_img" src="">
               </div>
-              <div class="animal-text col-8">
-                <p>あなたのスピードは<br>「うま」レベル！</p>
+              <div class="animal-text col-7">
+                  <p>あなたのスピードは<br>「<span id="animal_name"></span>」レベル！</p>
               </div>
             </div>
 
             <div class="child-message-area">
               <div class="background-wrapper">
                 <div class="bg-mask">
-                  さいごまであきらめないでよくはしれました。<br>
-                  これからもいっぱいあそんでからだをきたえてがんばってください。
+                  さいごまであきらめないでよくはしれました。<br>これからもいっぱいあそんでからだをきたえて<br>がんばってください。
                 </div>
               </div>              
             </div>
@@ -64,7 +63,7 @@
             <!-- メッセージエリア -->
             <div class="message-area">
               <p class="title">もっと早く走るには</p>
-              <p>幼少期には、とにかく遊んで体を動かす事が大切です。元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
+              <p>幼少期には、とにかく遊んで体を動かす事が大切です。<br>元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
             </div>
 
             <div class="summary-title">評価</div>
@@ -74,7 +73,10 @@
         </div>
       </div>
     </div>
-    <footer>Copyright©︎ 2019 Sportip, Inc. All rights reserved.</footer>
+    <footer>
+      <p class="deadline">有効期限 2020年1月31日</p>
+      <p>Copyright©︎ 2019 Sportip, Inc. All rights reserved.</p>
+    </footer>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

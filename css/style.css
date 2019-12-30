@@ -144,16 +144,17 @@ a:hover {
 
 .tab-contents.slick-initialized {
   display: block;
+  visibility: hidden;
+}
+
+.tab-contents.slick-initialized.loaded {
+  visibility: visible;
 }
 
 .content {
   width: 100%;
   margin: 1% auto;
   outline: 0;
-}
-
-.loading-content {
-  display: none;
 }
 
 /* content end */

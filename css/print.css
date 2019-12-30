@@ -73,7 +73,7 @@ video {
 }
 
 .child-info-area div {
-  margin: 0 10px;
+  margin: 0 5px;
   color: #000;
   color: var(--black-color);
   font-size: 2rem;
@@ -92,11 +92,7 @@ video {
 
 .child-physical-info p {
   width: 80%;
-  margin: 0 0 5px auto;
-}
-
-.child-physical-info p:last-child {
-  margin-right: 5px;
+  margin: 0 auto 5px auto;
 }
 
 .tab-list {
@@ -108,7 +104,7 @@ video {
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 0 5px;
   font-size: 2rem;
   padding: 2px;
   box-sizing: border-box;
@@ -127,7 +123,7 @@ video {
 }
 
 .content {
-  margin: 10px;
+  margin: 5px;
   flex-wrap: wrap;
 }
 
@@ -229,7 +225,7 @@ video {
 }
 
 .bar-labels {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   display: flex;
 }
 
@@ -247,20 +243,20 @@ video {
   height: 100%;
   background-color: rgb(237, 40, 85, 1);
   background-color: var(--red-color);
-  font-size: 1.9rem;
+  font-size: 1.8rem;
 }
 
 p.bar-value-text {
   color: rgb(237, 40, 85, 1);
   color: var(--red-color);
   text-align: right;
-  font-size: 1.9rem;
+  font-size: 1.8rem;
 }
 
 p.bar-summary {
-  font-size: 1.7rem;
-  line-height: 1.7;
-  margin: .5rem 0 .5rem 0;
+  font-size: 1.53rem;
+  line-height: 1.5;
+  margin: .3rem 0;
 }
 /* bar area end */
 
@@ -278,7 +274,7 @@ p.bar-summary {
 }
 
 .message-area p {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .qr-wrapper {

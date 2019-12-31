@@ -33,7 +33,7 @@ const showCheckPointData = function(checkPointData) {
     }
     $(".loader").hide();
     $(".print-form").show();
-  });
+  }, {once: true});
 };
 
 // QRコード生成

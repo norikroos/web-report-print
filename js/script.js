@@ -97,4 +97,3 @@ $.ajax({
 });
 
 video.src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-video.play();

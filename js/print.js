@@ -24,8 +24,7 @@ const drawVideoFrameImage = function(id, frame) {
 const showCheckPointData = function(checkPointData) {
   // console.log('showCheckpointData');
   video.src = "https://d2etk9d4ec15ap.cloudfront.net/" + mediafile_id;
-  video.play();
-  video.addEventListener('canplay', async function() {
+  video.addEventListener('canplaythrough', async function() {
     // console.log('canplay');
     for (let index = 0; index < checkPointData.length; index++) {
       const value = checkPointData[index];

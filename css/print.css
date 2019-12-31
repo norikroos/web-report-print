@@ -33,19 +33,19 @@ html {
 
 body {
   position: absolute;
-  top: 10mm;
-  left: -37mm;
+  top: 15mm;
+  left: -35mm;
   right: 0;
   bottom: 0;
   /* このサイズは仮 */
-  width: 283mm;
-  height: 210mm;
+  width: 281mm;
+  height: 218mm;
   /* width: 100%; */
   margin: auto;
   page-break-before: always;
   background-color: #fff;
   /* font-family: "Noto Sans JP"; */
-  font-family: Meirio;
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
   font-size:1.6rem;/* 16px*/
   line-height: 1.5;
   outline: 0;
@@ -91,8 +91,23 @@ video {
 }
 
 .child-physical-info p {
-  width: 80%;
+  width: 90%;
   margin: 0 auto 5px auto;
+  display: flex;
+}
+
+span.left {
+  display: block;
+  width: 60%;
+}
+
+span.right {
+  text-align: right;
+  display: block;
+  width: 40%;
+  font-size: 1.8rem;
+  padding: 3px;
+  box-sizing: border-box;
 }
 
 .tab-list {
@@ -106,6 +121,7 @@ video {
   border-radius: 5px;
   margin: 0 5px;
   font-size: 2rem;
+  font-weight: bolder;
   padding: 2px;
   box-sizing: border-box;
 }
@@ -146,6 +162,7 @@ video {
 
 .check-point-image-container {
   font-size: 1.9rem;
+  font-weight: bolder;
 }
 
 .check-point-image-container > div {
@@ -202,7 +219,8 @@ video {
 }
 
 .animal-text .animal-name {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
 }
 
 .animal-img {
@@ -226,6 +244,7 @@ video {
 
 .bar-labels {
   font-size: 1.8rem;
+  font-weight: bolder;
   display: flex;
 }
 
@@ -266,11 +285,12 @@ p.bar-summary {
 }
 
 .message-area {
-  width: 65%;
+  width: 60%;
 }
 
 .message-area .title {
   font-size: 1.8rem;
+  font-weight: bolder;
 }
 
 .message-area p {
@@ -278,7 +298,8 @@ p.bar-summary {
 }
 
 .qr-wrapper {
-  width: 35%;
+  width: 38%;
+  margin-left: 2%;
 }
 
 .qr-wrapper p {
@@ -286,6 +307,15 @@ p.bar-summary {
   color: var(--red-color);
   font-size: 1.3rem;
   text-align: center;
+}
+
+.nec-sportip-icon img {
+  width: 100%;
+}
+
+span.deadline {
+  color: var(--black-color);
+  color: #000;
 }
 
 canvas {
@@ -298,24 +328,45 @@ footer {
   display: none;
 }
 
-.row {
-  display: flex;
+/*flex*/
+.row{
+    display: flex;
 }
-
-.col-2 {
-  width: 16.6%;
+.col-1{
+    width: 8.33%;
 }
-
-.col-4 {
-  width: 33.3%;
+.col-2{
+    width: 16.66%;
 }
-
-.col-8 {
-  width: 66.6%;
+.col-3{
+    width: 25%;
 }
-
-.col-6 {
-  width: 50%;
+.col-4{
+    width: 33.33%;
+}
+.col-5{
+    width: 41.66%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33%;
+}
+.col-8{
+    width: 66.66%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.33%;
+}
+.col-11{
+    width: 91.66%;
+}
+.col-12{
+    width: 100%;
 }
 
 .form {

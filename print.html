@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Running Form Analyzer | Sportip, Inc.</title>
     <link rel="shortcut icon" href="img/icon.png">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link type="text/css" rel='stylesheet' href='css/style.css' media="screen"/>
     <link type="text/css" rel='stylesheet' href="css/print.css" media="print"/>
     <link type="text/css" rel='stylesheet' href='css/loader.css'/>
@@ -14,7 +13,7 @@
     <div class="container print-page">
       <!-- ランニング動画 -->
       <div class="video-wrapper">
-        <video class="print-video" id="video" controls crossorigin="anonymous" playsinline muted></video>
+        <video class="print-video" id="video" controls crossorigin="anonymous" playsinline autoplay muted></video>
       </div>
 
       <div class="form">
@@ -28,9 +27,9 @@
 
       <!-- 氏名・身長・体重 -->
       <div class="child-info-area print-area">
-        <div class="child-name col-8"><p class="entry-field" id="child_name">氏名: </p></div>
-        <div class="child-physical-info col-2"><p class="entry-field" id="height">身長: </p></div>
-        <div class="child-physical-info col-2"><p class="entry-field" id="weight">体重: </p></div>
+        <div class="child-name col-8"><p class="entry-field" id="child_name"><span class="left">氏名:</span></p></div>
+        <div class="child-physical-info col-2"><p class="entry-field" id="height"><span class="left">身長:</span><span class="right">cm</span></p></div>
+        <div class="child-physical-info col-2"><p class="entry-field" id="weight"><span class="left">体重:</span><span class="right">kg</span></p></div>
       </div>
 
       <!-- タブ -->
@@ -63,7 +62,7 @@
                   <img id="canvas_3">
                 </div>
                 <div id="c_4">
-                  <p>跳躍</p>
+                  <p>フォロースルー</p>
                   <img id="canvas_4">
                 </div>
               </div>
@@ -81,7 +80,7 @@
 
               <div class="animal-area row">
                 <div class="animal-text col-6">
-                  <p>あなたのスピードは<br>「<span class="animal-name" id="animal_name"></span>」レベル！</p>
+                  <p>あなたのスピードは<br>「 <span class="animal-name" id="animal_name"></span> 」レベル！</p>
                 </div>
                 <div class="animal-img col-6">
                     <img id="animal_img" src="">
@@ -109,8 +108,9 @@
                 <p>幼少期には、とにかく遊んで体を動かす事が大切です。<br>元気よく公園等の室外で遊ばせる事を心掛けてください。</p>
               </div>
               <div class="qr-wrapper">
-                <p>結果をスマホでみる<br>有効期限 2020/1/31</p>
+                <p>結果をスマホでみる<br><span class="deadline">有効期限 2020/1/31</span></p>
                 <div class="qr" id="qr"></div>
+                <div class="nec-sportip-icon"><img style="width: 100%;" src="img/icon_nec_sportip.png"></div>
               </div>
             </div>
           </div>

@@ -2,7 +2,6 @@ const drawVideoFrameImage = function(id, frame) {
   return new Promise(function(resolve) {
     // console.log('call draw');
     video.currentTime = frame / 29.97 - 0.03;
-    console.log(video.paused);
     video.addEventListener('timeupdate', function() {
       // console.log('state:', video.readyState, ', currentTime: ', video.currentTime);
       const image = document.getElementById("canvas_" + id);

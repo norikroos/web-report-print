@@ -21,8 +21,6 @@ const switchActiveTab = function(content_id) {
 
 // check point 表示切り替え
 const toggleActive = function(e, frame) {
-  const check_point_id = $(e).data('id');
-
   if ($(e).hasClass('active')) {
     return null;
   }
@@ -85,6 +83,9 @@ $.ajax({
       const checkPointData = jsonData.check_point_icon_data;
       const checkPointCol = parseInt(12 / checkPointData.length);
       checkPointData.forEach(function(value, index) {
+        if (value.check_point_category == 'follow_through') {
+          value.display_name = 'フォロースルー';
+        }
         const values = Object.assign(value, {id: String(index+1), col: String(checkPointCol)});
         $('#check_point_container').append(CheckPoint(values));
         $('.tab-contents').slick('slickSetOption', {adaptiveHeight: true});

@@ -294,7 +294,9 @@ p.bar-summary {
 
 .check-point-text {
   font-size: 1.7rem;
-  padding: .3vmin 0;
+  height: 3.2rem;
+  line-height: 1.7rem;
+  padding: .7rem 0;
   box-sizing: border-box;
   text-align: center;
   background-color: #eee;
@@ -305,6 +307,10 @@ p.bar-summary {
   transition: background-color .2s ease-in;
   -o-transition: background-color .2s ease-in;
   -webkit-transition: background-color .2s ease-in;
+}
+
+#check_point_4 .check-point-text {
+  font-size:1.1rem;
 }
 
 .check-point.active .check-point-text {
@@ -402,8 +408,14 @@ footer {
   }
 
   .check-point-text {
-    padding:3%;
+    padding: .9rem 0;
     font-size: 2.2rem;
+    height: 4rem;
+    line-height: 2.2rem;
+  }
+
+  #check_point_4 .check-point-text {
+    font-size: 1.3rem;
   }
 
   .check-point-icon-on {

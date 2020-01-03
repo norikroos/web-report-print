@@ -1,7 +1,3 @@
-video.addEventListener('canplay', function() {
-  video.pause();
-}, {once: true});
-
 // タブ切り替え
 $('.tab').on('click', function() {
   const content_id = $(this).data('content');
@@ -25,7 +21,8 @@ const toggleActive = function(e, frame) {
     return null;
   }
 
-  video.currentTime = frame / 29.97;
+  video.currentTime = frame / 29.97 - 0.03;
+  console.log(video.currentTime);
 
   $('.check-point.active').removeClass('active');
   $('.check-point img.on').hide();

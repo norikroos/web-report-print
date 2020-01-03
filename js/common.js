@@ -12,6 +12,10 @@ const mediafile_id = arg.mediafile_id;
 
 const video = document.getElementById("video");
 
+video.addEventListener('canplay', function() {
+  video.pause();
+}, {once: true});
+
 // API URL
 const URL =
   "https://kffjc39iea.execute-api.us-east-1.amazonaws.com/wadws/media/" +

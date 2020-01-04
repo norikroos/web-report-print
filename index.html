@@ -11,11 +11,11 @@
     <link type="text/css" rel='stylesheet' href='css/loader.css'/>
     <link rel="stylesheet" type="text/css" href="css/slick.css"/>
   </head>
-  <body>
+  <body oncontextmenu="return false;">
     <div class="container">
       <!-- ランニング動画 -->
       <div class="video-wrapper">
-        <video id="video" controls playsinline autoplay muted></video>
+        <video id="video" controls controlsList="nodownload" playsinline autoplay muted></video>
       </div>
 
       <!-- タブ -->
@@ -38,7 +38,7 @@
                   <img id="animal_img" src="">
               </div>
               <div class="animal-text col-7">
-                  <p>あなたのスピードは<br>「<span id="animal_name"></span>」レベル！</p>
+                  <p>あなたのスピードは<br>「 <span class="animal-name" id="animal_name"></span> 」レベル！</p>
               </div>
             </div>
 
@@ -54,6 +54,7 @@
             <div class="check-point-area">
               <div class="check-point-container row" id="check_point_container"></div>
             </div>
+            <p class="icon-select-message">上のアイコンを選択すると動画が自動で切り替わるよ</p>
           </div>
         </div>
 

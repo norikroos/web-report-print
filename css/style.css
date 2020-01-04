@@ -205,6 +205,10 @@ a:hover {
   justify-content: center; /* 横方向中央揃え */
 }
 
+span.animal-name {
+  font-size: 2rem;
+}
+
 /* bar area start */
 .bars-area {
   width: 92%;
@@ -260,7 +264,8 @@ p.bar-summary {
 }
 
 .message-area p {
-  margin: 20px;
+  width: 92%;
+  margin: 20px auto;
 }
 
 .summary-title {
@@ -331,6 +336,11 @@ p.bar-summary {
 
 .check-point-icon>img.on {
   display: none;
+}
+
+p.icon-select-message {
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 /* check point end */
